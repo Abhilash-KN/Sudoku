@@ -1,0 +1,8 @@
+.numberPad {
+  margin-top: 8px;
+}
+
+.numberPad button {
+  width: 45px;
+  height: 45px;
+}

@@ -1,0 +1,47 @@
+.container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.grid {
+  border: 3px solid black;
+  border-radius: 4px;
+}
+
+.row:nth-child(3) .cell,
+.row:nth-child(6) .cell {
+  border-bottom: 3px solid black;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6) {
+  border-right: 3px solid black;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid gray;
+  font-size: 2em;
+  font-weight: bolder;
+  cursor: pointer;
+  color: rgb(59, 55, 55);
+}
+
+.container button {
+  width: 450px;
+  height: 45px;
+  margin-top: 8px;
+}
