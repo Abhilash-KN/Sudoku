@@ -23,13 +23,10 @@ function Menu(props) {
       <div className={styles.gameInfo}>
         <h1>Sudoku</h1>
         <br />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Sudoku is played on a grid of 9 x 9 spaces. Within the rows and columns
+        are 9 “squares” (made up of 3 x 3 spaces). Each row, column and square
+        (9 spaces each) needs to be filled out with the numbers 1-9, without
+        repeating any numbers within the row, column or square.
       </div>
       <MenuOptions
         page={page}

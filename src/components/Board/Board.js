@@ -45,8 +45,19 @@ function Board(props) {
         }
         tempGrid.push([...g1]);
       }
+      let tempConflictingGrid = [];
+      for (let i = 0; i < 9; i++) {
+        let g1 = [];
+        for (let j = 0; j < 9; j++) {
+          g1.push(0);
+        }
+        tempConflictingGrid.push([...g1]);
+      }
+      setErrorCount(0);
+      setEmptyCells(81);
       setOriginalGrid(tempGrid);
       setGrid(tempGrid);
+      setConflictingCells(tempConflictingGrid);
     }
     // eslint-disable-next-line
   }, [page]);

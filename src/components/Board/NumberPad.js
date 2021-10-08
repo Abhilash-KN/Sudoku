@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "components/Board/NumberPad.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEraser } from "@fortawesome/free-solid-svg-icons";
 
 function NumberPad(props) {
   const { selectedNumber, setSelectedNumber } = props;
@@ -12,7 +14,7 @@ function NumberPad(props) {
           className={selectedNumber === n ? styles.selected : styles.unSelected}
           onClick={() => setSelectedNumber(n)}
         >
-          {n}
+          {n === 0 ? <FontAwesomeIcon icon={faEraser} /> : n}
         </button>
       ))}
     </div>

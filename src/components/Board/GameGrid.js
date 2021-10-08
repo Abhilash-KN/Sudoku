@@ -65,8 +65,8 @@ function GameGrid(props) {
       tempGrid[i][j] = selectedNumber;
       setGrid([...tempGrid]);
       if (eCells === 0 && eCount === 0) {
-        setResult("Solved");
-        setMessage("Congratulations! you have solved the puzzle successfully");
+        setResult("Great!");
+        setMessage("Congratulations. You have solved the puzzle successfully");
         toggleDisplay(true);
       }
     }

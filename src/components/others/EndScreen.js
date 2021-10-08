@@ -8,7 +8,7 @@ function EndScreen(props) {
       className={styles.container}
       style={{ display: display ? "flex" : "none" }}
     >
-      <div className={styles.result}>{result}</div>
+      <h1 className={styles.result}>{result}</h1>
       <div className={styles.message}>{message}</div>
       <button className={styles.button} onClick={() => toggleDisplay(false)}>
         Ok

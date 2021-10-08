@@ -83,28 +83,28 @@ function App() {
                 setPage={setPage}
                 setDifficulty={setDifficulty}
               />
-            ) : (
-              <Board
-                page={page}
-                originalGrid={originalGrid}
-                setOriginalGrid={setOriginalGrid}
-                grid={grid}
-                setGrid={setGrid}
-                difficulty={difficulty}
-                errorCount={errorCount}
-                setErrorCount={setErrorCount}
-                conflictingCells={conflictingCells}
-                setConflictingCells={setConflictingCells}
-                emptyCells={emptyCells}
-                setEmptyCells={setEmptyCells}
-                result={result}
-                message={message}
-                setResult={setResult}
-                setMessage={setMessage}
-                display={display}
-                toggleDisplay={toggleDisplay}
-              />
-            )}
+            ) : null}
+
+            <Board
+              page={page}
+              originalGrid={originalGrid}
+              setOriginalGrid={setOriginalGrid}
+              grid={grid}
+              setGrid={setGrid}
+              difficulty={difficulty}
+              errorCount={errorCount}
+              setErrorCount={setErrorCount}
+              conflictingCells={conflictingCells}
+              setConflictingCells={setConflictingCells}
+              emptyCells={emptyCells}
+              setEmptyCells={setEmptyCells}
+              result={result}
+              message={message}
+              setResult={setResult}
+              setMessage={setMessage}
+              display={display}
+              toggleDisplay={toggleDisplay}
+            />
           </div>
         </div>
       </div>

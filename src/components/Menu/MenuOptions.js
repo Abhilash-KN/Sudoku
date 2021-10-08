@@ -52,14 +52,14 @@ function MenuOptions(props) {
       let status = solve(tempGrid, positions, 0);
       if (status) setGrid(tempGrid);
       else {
-        setResult("Error!");
+        setResult("Oops!");
         setMessage(
           "The given puzzle cannot be solved. Please check the squares which are containing logical errors and retry"
         );
         toggleDisplay(true);
       }
     } else {
-      setResult("Error!");
+      setResult("Oops!");
       setMessage(
         "There are errors in the given puzzle. Kindly check the highlighted cells and retry"
       );
