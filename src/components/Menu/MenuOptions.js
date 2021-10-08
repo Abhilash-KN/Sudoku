@@ -2,6 +2,7 @@ import React from "react";
 import styles from "components/Menu/MenuOptions.module.css";
 import getAvailablePositions from "engine/GetAvailablePositions";
 import solve from "engine/Solve";
+import classnames from "classnames";
 
 function MenuOptions(props) {
   const {
@@ -14,6 +15,10 @@ function MenuOptions(props) {
     difficulty,
     setEmptyCells,
     setErrorCount,
+    errorCount,
+    setResult,
+    setMessage,
+    toggleDisplay,
   } = props;
 
   function resetGame() {
@@ -38,35 +43,77 @@ function MenuOptions(props) {
   }
 
   function getSolution() {
-    let positions = getAvailablePositions(grid);
-    let tempGrid = [];
-    for (let i = 0; i < 9; i++) {
-      tempGrid.push([...grid[i]]);
+    if (errorCount === 0) {
+      let positions = getAvailablePositions(grid);
+      let tempGrid = [];
+      for (let i = 0; i < 9; i++) {
+        tempGrid.push([...grid[i]]);
+      }
+      let status = solve(tempGrid, positions, 0);
+      if (status) setGrid(tempGrid);
+      else {
+        setResult("Error!");
+        setMessage(
+          "The given puzzle cannot be solved. Please check the squares which are containing logical errors and retry"
+        );
+        toggleDisplay(true);
+      }
+    } else {
+      setResult("Error!");
+      setMessage(
+        "There are errors in the given puzzle. Kindly check the highlighted cells and retry"
+      );
+      toggleDisplay(true);
     }
-    solve(tempGrid, positions, 0);
-    setGrid(tempGrid);
   }
   return (
-    <div className={styles.container}>
+    <div
+      className={classnames(
+        styles.container,
+        page === "home" ? styles.mobileHome : null
+      )}
+    >
       {page === "home" ? (
-        <div>
-          <button onClick={() => setPage("selectDifficulty")}>Play</button>
-          <button onClick={() => setPage("findSolution")}>Find Solution</button>
+        <div className={classnames(styles.buttonGroup)}>
+          <button
+            className={styles.button}
+            onClick={() => setPage("selectDifficulty")}
+          >
+            Play
+          </button>
+          <button
+            className={styles.button}
+            onClick={() => setPage("findSolution")}
+          >
+            Find Solution
+          </button>
         </div>
       ) : page === "selectDifficulty" ? (
-        <div>
-          <button onClick={() => setPage("home")}>Back</button>
+        <div className={styles.buttonGroup}>
+          <button className={styles.button} onClick={() => setPage("home")}>
+            Back
+          </button>
         </div>
       ) : page === "play" ? (
-        <div>
-          <button onClick={() => setPage("home")}>Quit</button>
-          <button onClick={() => resetGame()}>Reset</button>
+        <div className={styles.buttonGroup}>
+          <button className={styles.button} onClick={() => setPage("home")}>
+            Quit
+          </button>
+          <button className={styles.button} onClick={() => resetGame()}>
+            Reset
+          </button>
         </div>
       ) : (
-        <div>
-          <button onClick={() => setPage("home")}>Back</button>
-          <button onClick={() => resetGame()}>Reset</button>
-          <button onClick={() => getSolution()}>Find Solution</button>
+        <div className={styles.buttonGroup}>
+          <button className={styles.button} onClick={() => setPage("home")}>
+            Back
+          </button>
+          <button className={styles.button} onClick={() => resetGame()}>
+            Reset
+          </button>
+          <button className={styles.button} onClick={() => getSolution()}>
+            Solve
+          </button>
         </div>
       )}
     </div>

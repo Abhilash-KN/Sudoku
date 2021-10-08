@@ -10,9 +10,15 @@ function SelectDifficulty(props) {
   }
   return (
     <div className={styles.container}>
-      <button onClick={() => changePage("easy")}>Easy</button>
-      <button onClick={() => changePage("medium")}>Medium</button>
-      <button onClick={() => changePage("hard")}>Hard</button>
+      <button className={styles.button} onClick={() => changePage("easy")}>
+        Easy
+      </button>
+      <button className={styles.button} onClick={() => changePage("medium")}>
+        Medium
+      </button>
+      <button className={styles.button} onClick={() => changePage("hard")}>
+        Hard
+      </button>
     </div>
   );
 }

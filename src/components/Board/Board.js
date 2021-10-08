@@ -20,6 +20,12 @@ function Board(props) {
     setErrorCount,
     conflictingCells,
     setConflictingCells,
+    result,
+    setResult,
+    message,
+    setMessage,
+    display,
+    toggleDisplay,
   } = props;
 
   useEffect(() => {
@@ -59,12 +65,17 @@ function Board(props) {
         setConflictingCells={setConflictingCells}
         emptyCells={emptyCells}
         setEmptyCells={setEmptyCells}
+        result={result}
+        setResult={setResult}
+        message={message}
+        setMessage={setMessage}
+        display={display}
+        toggleDisplay={toggleDisplay}
       />
       <NumberPad
         selectedNumber={selectedNumber}
         setSelectedNumber={setSelectedNumber}
       />
-      {emptyCells === 0 && errorCount === 0 ? "Puzzle solved" : null}
     </div>
   );
 }
